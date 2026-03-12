@@ -76,11 +76,11 @@ class ClinicAppointment:
         print("4 : select 4 to Exit System.")
         choose=int(input("Enter the menu number u wanna select: "))
         if choose==1:
-            appt.bookappointment()
+            self.bookappointment()
         elif choose==2:    
-            appt.viewappointment()
+            self.viewappointment()
         elif choose==3:
-            appt.cancelappointment()
+            self.cancelappointment()
         elif choose==4:
             print("Thank you for using Apollo hospital online portal.")
         else:
