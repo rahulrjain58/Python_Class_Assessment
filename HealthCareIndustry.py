@@ -27,13 +27,12 @@ class ClinicAppointment:
             print("*"*100)
             print("doctor for this slot is not available, please choose different slot. Try again")
             print("*"*100)
-            self.menu()
+            return
         appointment={"name":name,"age":age,"mobile":mobile,"doctor":self.doctors[doctor-1],"slot":self.slots[slot-1]}
         self.appointments.append(appointment)
         print("*"*100)
         print("Appointment created successfully.")
         print("*"*100)
-        self.menu()
 
     def viewappointment(self):
         m=(input("Please Enter your mobile Number: "))
@@ -48,7 +47,6 @@ class ClinicAppointment:
             print("*"*100)
             print("No Appointment Found")
             print("*"*100)
-        self.menu()
     def cancelappointment(self):
         m=(input("Please Enter your mobile Number: "))
         Found=True
@@ -63,30 +61,30 @@ class ClinicAppointment:
             print("*"*100)
             print("No Appointment Found")
             print("*"*100)
-        self.menu()
     def menu(self):
-        print("*"*100)
-        print("Appointments just for information: ",self.appointments)
-        print("*"*100)
-        print("welcome to Apollo Hospital")
-        print("*"*100)
-        print("1 : select 1 to create a new appointment.")
-        print("2 : select 2 to view your appointment.")
-        print("3 : select 3 to cancel your appointment.")
-        print("4 : select 4 to Exit System.")
-        choose=int(input("Enter the menu number u wanna select: "))
-        if choose==1:
-            self.bookappointment()
-        elif choose==2:    
-            self.viewappointment()
-        elif choose==3:
-            self.cancelappointment()
-        elif choose==4:
-            print("Thank you for using Apollo hospital online portal.")
-        else:
-            print("Invalid Choice")
-            self.menu()
-        print("*"*40)
+        while True:
+            print("*"*100)
+            print("Appointments just for information: ",self.appointments)
+            print("*"*100)
+            print("welcome to Apollo Hospital")
+            print("*"*100)
+            print("1 : select 1 to create a new appointment.")
+            print("2 : select 2 to view your appointment.")
+            print("3 : select 3 to cancel your appointment.")
+            print("4 : select 4 to Exit System.")
+            choose=int(input("Enter the menu number u wanna select: "))
+            if choose==1:
+                self.bookappointment()
+            elif choose==2:    
+                self.viewappointment()
+            elif choose==3:
+                self.cancelappointment()
+            elif choose==4:
+                print("Thank you for using Apollo hospital online portal.")
+                break
+            else:
+                print("Invalid Choice")
+            print("*"*40)
 
 appt=ClinicAppointment()
 appt.menu()
