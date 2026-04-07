@@ -25,7 +25,6 @@ class BusReservation:
         name = input("Enter Name: ")
         age = input("Enter Age: ")
         mobile = input("Enter Mobile: ")
-
         self.show_routes()
         choice = int(input("Select route number: "))
 
@@ -34,8 +33,6 @@ class BusReservation:
             return
 
         route_name = self.routes[choice]["route"]
-
-        # Count seats already booked for this route
         seat_count = sum(1 for t in self.tickets if t["route"] == route_name)
 
         if seat_count >= 40:
@@ -119,7 +116,5 @@ class BusReservation:
             else:
                 print("Invalid choice!")
 
-
-# Run program
 b = BusReservation()
 b.menu()
